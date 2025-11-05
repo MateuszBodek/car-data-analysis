@@ -1,8 +1,11 @@
+"""Functions for scraping all car model links from autocentrum.pl and optionally saings them to a text file."""
+
 import requests
 from bs4 import BeautifulSoup
 from typing import List
 from tqdm import tqdm
 import os
+
 
 def links_scraper(save_to_file: bool = False, filename: str = "car_model_links") -> List:
     base_url = 'https://www.autocentrum.pl'

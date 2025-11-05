@@ -1,3 +1,5 @@
+"""Functions for scraping technical car data from autocentrum.pl and saving it to JSON files."""
+
 import re
 import os
 import requests
@@ -7,6 +9,7 @@ from tqdm import tqdm
 
 
 def modify_url(old, new):
+    """Modifies URLs by replacing a specified substring with a new substring."""
     def modify_url(func):
         def inner(file_path: str) -> list:
             links_old = func(file_path)
@@ -17,7 +20,7 @@ def modify_url(old, new):
 
 
 def scrape_car_tech_specs(url: str) -> list:
-    '''Scrapes technical specifications of every variant of a car from the provided URL.'''
+    """Scrapes technical specifications of every variant of a car from the provided URL."""
 
     headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0 Safari/537.36'
@@ -41,7 +44,6 @@ def scrape_car_tech_specs(url: str) -> list:
         engines_listed = soup.find_all('a', class_=['engine-link pb', 'engine-link on', 'engine-link el', 'engine-link hyb', 'engine-link plugin'])
         engines = ['https://www.autocentrum.pl/' + eng['href'] for eng in engines_listed]
 
-
     technical_data = []
 
     # Scrape technical specs from each engine link
@@ -57,8 +59,6 @@ def scrape_car_tech_specs(url: str) -> list:
         for descr in tech_descr_listed:
             descr_list.append(descr.get_text(strip=True))
 
-        
-
         # Clean numerical data from unit names
         for num in tech_numbers_listed:
             cleaned = re.sub(r'(?:\xa0mm| mm|\xa0l|\xa0cm³|\xa0km/h|\xa0s|\xa0l/100km|\xa0km|\xa0kg)$', '', num.get_text(strip=True))
@@ -70,9 +70,7 @@ def scrape_car_tech_specs(url: str) -> list:
         
         technical_data.append(result_cleaned)
 
-
     return technical_data
-   
 
 
 def scrape_and_save_tech_data(path: str, filename: str, links: list, limit: int | None = None) -> None:
@@ -95,8 +93,6 @@ def scrape_and_save_tech_data(path: str, filename: str, links: list, limit: int 
             all_rows = []
     else:
         all_rows = []
-
-
 
     # Scrape and save after each link, log errors and links for later review
     for link in tqdm(links[:limit] if limit else links):
