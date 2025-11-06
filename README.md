@@ -4,19 +4,22 @@ A Python project for scraping and analyzing car technical specifications and use
 
 ## Project Structure
 
+```bash
 ├── src/
-│ ├── data/					 # Scraped data storage
-│    ├── car_technical_data/ 		 # JSON files with car specs
-│    ├── car_model_links.txt 		 # URLs to car models
-│    └── car_ratings.txt 			 # User ratings data
+│ ├── data/					     # Scraped data storage
+│    ├── car_technical_data/ 	 # JSON files with car specs
+│    ├── car_model_links.txt 	 # URLs to car models
+│    ├── car_ratings.txt 		 # User ratings data
+│    └── cars.db                 # Cars database
 │ ├── data_scripts/ 			 # Data processing scripts
-│     ├── database.py			 # Database loading scripts
-│     └── preliminary_ed.ipynb 	 # Data exploration notebook
-│ └── scraper/ 				 # Web scraping modules
-│ 	├── [links_scraper.py](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) 		 # Car model URLs scraper
-│ 	├── [tech_data_scraper.py](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) 	 # Technical specs scraper
-│ 	└── review_data_scraper.py  # User reviews scraper
-└── [main.py](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) 					 # Main execution script
+│    ├── database.py			 # Database loading scripts
+│    └── preliminary_ed.ipynb 	 # Data exploration notebook
+│ └── scraper/ 				     # Web scraping modules
+│ 	 ├── links_scraper.py		 # Car model URLs scraper
+│ 	 ├── tech_data_scraper.py 	 # Technical specs scraper
+│ 	 └── review_data_scraper.py  # User reviews scraper
+└── main.py 					 # Main execution script
+```
 
 ## Features
 
