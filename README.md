@@ -18,7 +18,6 @@ A Python project for scraping and analyzing car technical specifications and use
 │ 	└── review_data_scraper.py  # User reviews scraper
 └── [main.py](vscode-file://vscode-app/c:/Program%20Files/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-browser/workbench/workbench.html) 					 # Main execution script
 
-
 ## Features
 
 - Scrapes comprehensive car technical specifications
@@ -45,7 +44,6 @@ python main.py
 
 3. Use Jupyter notebook `preliminary_ed.ipynb` for data exploration and cleaning
 
-
 ## Data Sources
 
 The project scrapes data from autocentrum.pl including:
@@ -53,6 +51,8 @@ The project scrapes data from autocentrum.pl including:
 * Technical specifications for different car models
 * User ratings across multiple categories
 * Car model information and generations
+
+Clean data is saved into a database located in the folder data.
 
 ## Note
 
