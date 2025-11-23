@@ -43,8 +43,6 @@ pip install -r requirements.txt
 python main.py
 ```
 
-python main.py
-
 3. Explore and clean the data
    Open:
 
